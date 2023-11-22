@@ -30,9 +30,8 @@ test("should be able to get wishlist by customer", async ({
     Authorization: `Bearer ${token}`,
   });
 
-  const customer_id = "cus_01HDVRJGHMVDAMWT73KKHSR9T2";
   const responseWishlist = await page.goto(
-    `http://localhost:9000/store/wishlist/customer/${customer_id}`
+    `http://localhost:9000/store/wishlist/customer}`
   );
   expect(responseWishlist).toBeTruthy();
 });
@@ -94,7 +93,7 @@ test("should be able to delete a wishlist Name", async ({ request }) => {
 
   expect(token).toBeTruthy();
 
-  const wishlistNameId = "wishlistName_01HFSC30K00P5PV44AZGZETRRA";
+  const wishlistNameId = "wishlistName_01HFVAPG1Z14BX12V7NE4YD2CT";
 
   try {
     const deleteRequest = await axios.delete(
@@ -134,7 +133,7 @@ test("should be able to update a wishlist", async ({ request }) => {
 
   expect(token).toBeTruthy();
 
-  const wishlistNameId = "wishlistName_01HFS9T5QQR52KN4400HRRJY4F"; // Change This
+  const wishlistNameId = "wishlistName_01HFVASMYQHYFBV6ZFQSMARXM3"; // Change This
   const data = {
     title: "Update By Playwright",
   };
@@ -177,7 +176,7 @@ test("should be able to delete a wishlist item", async ({ request }) => {
 
   expect(token).toBeTruthy();
 
-  const wishlistItemId = "wishlist_01HFSAYG0FVW4VAP92ZFQX7MH8"; // Change This
+  const wishlistItemId = "wishlist_01HFVAG4YFM9YZ8QQ7NZRBAMRR"; // Change This
 
   try {
     const deleteRequest = await axios.delete(
@@ -220,7 +219,7 @@ test("should be able to create a wishlist item", async ({ request }) => {
   const wishlistNameId = "wishlistName_01HFRGWZA6CVKWW8TG175Y8BQP"; // Change This
 
   const payload = {
-    variant_id: "variant_01HFRF924EK39QCP1K5169XPPM",
+    variant_id: "variant_01HFRFDGZBAR7CM5K3ND9GGJGG",
   };
 
   try {
