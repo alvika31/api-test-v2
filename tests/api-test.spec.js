@@ -31,7 +31,7 @@ test("should be able to get wishlist by customer", async ({
   });
 
   const responseWishlist = await page.goto(
-    `http://localhost:9000/store/wishlist/customer}`
+    `http://localhost:9000/store/wishlist/customer`
   );
   expect(responseWishlist).toBeTruthy();
 });
@@ -54,7 +54,6 @@ test("should be able to create a wishlist", async ({ request }) => {
 
   const payload = {
     title: "play wright",
-    customer_id: "cus_01HFREBVP254QR7E9TQN4G6M8W",
   };
 
   const response = await axios.post(
@@ -93,7 +92,7 @@ test("should be able to delete a wishlist Name", async ({ request }) => {
 
   expect(token).toBeTruthy();
 
-  const wishlistNameId = "wishlistName_01HFVAPG1Z14BX12V7NE4YD2CT";
+  const wishlistNameId = "wishlistName_01HFXE1J2NB1M8AM0PQKPHYST1";
 
   try {
     const deleteRequest = await axios.delete(
@@ -117,7 +116,6 @@ test("should be able to delete a wishlist Name", async ({ request }) => {
 });
 
 test("should be able to update a wishlist", async ({ request }) => {
-  // Step 1: Login
   const loginResponse = await request.post(
     "http://localhost:9000/store/auth/token",
     {
@@ -133,7 +131,7 @@ test("should be able to update a wishlist", async ({ request }) => {
 
   expect(token).toBeTruthy();
 
-  const wishlistNameId = "wishlistName_01HFVASMYQHYFBV6ZFQSMARXM3"; // Change This
+  const wishlistNameId = "wishlistName_01HFXE0SPSQ94TW3134W1J1XTE"; // Change This
   const data = {
     title: "Update By Playwright",
   };
@@ -176,7 +174,7 @@ test("should be able to delete a wishlist item", async ({ request }) => {
 
   expect(token).toBeTruthy();
 
-  const wishlistItemId = "wishlist_01HFVAG4YFM9YZ8QQ7NZRBAMRR"; // Change This
+  const wishlistItemId = "wishlist_01HFXCCTBP1MPX7SXMHTAJZN9E"; // Change This
 
   try {
     const deleteRequest = await axios.delete(
@@ -216,10 +214,10 @@ test("should be able to create a wishlist item", async ({ request }) => {
 
   expect(token).toBeTruthy();
 
-  const wishlistNameId = "wishlistName_01HFRGWZA6CVKWW8TG175Y8BQP"; // Change This
+  const wishlistNameId = "wishlistName_01HFXE0SPSQ94TW3134W1J1XTE"; // Change This
 
   const payload = {
-    variant_id: "variant_01HFRFDGZBAR7CM5K3ND9GGJGG",
+    variant_id: "variant_01HFRF924GBHHJ3B4XGGVTJG5F",
   };
 
   try {
