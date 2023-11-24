@@ -279,3 +279,38 @@ test("should be able to get all wishlist and wishlist item by admin", async ({
 
   expect(responseWishlist).toBeTruthy();
 });
+
+test("should be able to get count product in wishlist customer", async ({
+  page,
+  request,
+}) => {
+  const response = await request.post(
+    "http://localhost:9000/admin/auth/token",
+    {
+      data: {
+        // change this
+        email: "admin@medusa-test.com",
+        password: "alvika123",
+      },
+    }
+  );
+  console.log(await response.json());
+  expect(response.ok()).toBeTruthy();
+  expect(response.status()).toBe(200);
+  const responseBody = await response.json();
+  const token = responseBody.access_token;
+  console.log("New Token is: " + token);
+
+  const product_id = "prod_01HG004GH0CH737RYR70JTPSSF"; // change this
+
+  await page.setExtraHTTPHeaders({
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  });
+
+  const responseWishlist = await page.goto(
+    `http://localhost:9000/admin/${product_id}/count/wishlist`
+  );
+
+  expect(responseWishlist).toBeTruthy();
+});
